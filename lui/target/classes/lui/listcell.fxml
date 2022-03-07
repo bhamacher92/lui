@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane fx:id="gridpane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<GridPane fx:id="gridpane" hgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
     <children>
          <Button fx:id="removeButton" onAction="#handleRemoveElement" text="-" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
          <Label fx:id="element" GridPane.columnIndex="1" GridPane.rowIndex="0" />

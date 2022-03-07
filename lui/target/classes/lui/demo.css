@@ -1,3 +1,7 @@
+.root {
+    -fx-background-color: rgb(54, 53, 53);
+}
+
 .list-view{
     -fx-background-color: rgb(54, 53, 53);
 }
@@ -23,9 +27,17 @@ list-cell:filled:selected:focused, .list-cell:filled:selected {
 }
 
 .button {
-    -fx-background-color: #7a7c7d,#7a7c7d,#7a7c7d,#7a7c7d
+    -fx-background-color: #7a7c7d,#7a7c7d,#7a7c7d,#7a7c7d;
+    -fx-text-fill: rgb(248, 248, 248)
 }
 
 .label{
+    -fx-background-color: rgb(54, 53, 53); 
     -fx-text-fill: rgb(248, 248, 248)
 }
+
+.text-field{
+    -fx-background-color: #7a7c7d,#7a7c7d,#7a7c7d,#7a7c7d;
+    -fx-text-fill: rgb(248, 248, 248)
+}
+

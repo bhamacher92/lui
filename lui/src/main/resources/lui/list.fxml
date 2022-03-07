@@ -10,11 +10,15 @@
 <VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
     fx:controller="lui.ListController">
     <children>
+         <HBox>
+         <Button fx:id="backButton" text=".." onAction="#handleBackToStart"/>
+         <TextField fx:id="titel" HBox.hgrow="ALWAYS" text="#unnamed" />
+         </HBox>
          <ListView VBox.vgrow="ALWAYS" fx:id="listView">
          </ListView>
          <HBox >
          <TextField HBox.hgrow="ALWAYS" fx:id="input" onKeyPressed="#handleOnKeyPressed" />
-         <Button fx:id="addButton" text="Add" onAction="#handleAddElement" />
+         <Button fx:id="addButton" text=" + " onAction="#handleAddElement" />
          </HBox>
     </children>
 </VBox>

@@ -1,6 +1,7 @@
 package lui;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -39,6 +40,15 @@ public class ListController  implements Initializable {
     public void handleAddElement(){
         System.out.println("Button clicked");
         this.listView.getItems().add(this.input.getText());
+    }
+
+    @FXML
+    public void handleBackToStart(){
+        try {
+            App.setRoot("startScreen");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleOnKeyPressed(KeyEvent event){
