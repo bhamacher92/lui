@@ -12,9 +12,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.util.Callback;
-import javafx.scene.control.ListCell;
-
 
 public class ListController  implements Initializable {
     @FXML

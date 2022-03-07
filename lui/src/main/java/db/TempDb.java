@@ -13,7 +13,7 @@ public class TempDb implements IDatabase{
 
     }
     public void addShoppingList(String name,ShoppingList shoppingList){
-        shoppinglists.put(name,shoppingList);
+        shoppinglists.put(name,new ShoppingList(shoppingList));
     }
     public Set<String> getShoppingListNames(){
         return shoppinglists.keySet();
@@ -23,8 +23,12 @@ public class TempDb implements IDatabase{
     }
     
     public ShoppingList getShoppingList(String name){
+        if(shoppinglists.containsKey(name) ){
+            return shoppinglists.get(name);
+        }
         return new ShoppingList();
     }
+
     public Recipe getRecipe(String name){
         return new Recipe();
     }
