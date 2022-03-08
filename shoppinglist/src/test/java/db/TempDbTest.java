@@ -34,6 +34,18 @@ public class TempDbTest {
     }
 
     @Test
+    public void testAddListWithExistingName(){
+        IDatabase db=new TempDb();
+        ShoppingList list1=new ShoppingList("list");
+        ShoppingList list2=new ShoppingList("list");
+        ShoppingList list3=new ShoppingList("list");
+
+        assertEquals("list",db.addShoppingList(list1));
+        assertEquals("list2",db.addShoppingList(list2));
+        assertEquals("list3",db.addShoppingList(list3));
+    }
+
+    @Test
     public void testUpdateShoppingList(){
         IDatabase db=new TempDb();
         String name=new String("Name");
@@ -43,8 +55,21 @@ public class TempDbTest {
         ShoppingList listResult=db.getShoppingList(name);
         assertEquals(listResult.elements.size(), 1);
         list.elements.add(new ListElement("Nudeln", new Quantity(3)));
-        db.addShoppingList(list);
+        db.updateShoppingList(list.name,list);
         listResult=db.getShoppingList(name);
-        assertEquals(listResult.elements.size(), 2);
+        assertEquals(2, listResult.elements.size());
+    }
+
+    @Test 
+    public void testUpdateNotExistingList(){
+        IDatabase db=new TempDb();
+        ShoppingList list=new ShoppingList("list");
+        ShoppingList listUpdate=new ShoppingList("listUpdate");
+        list.elements.add(new ListElement("Reis", new Quantity(2)));
+        db.addShoppingList(list);
+        list.elements.add(new ListElement("Nudeln", new Quantity(3)));
+        assertEquals(listUpdate.name,db.updateShoppingList(listUpdate.name,listUpdate));
+        assertTrue(db.getShoppingListNames().contains("list"));
+        assertTrue(db.getShoppingListNames().contains("listUpdate"));
     }
 }

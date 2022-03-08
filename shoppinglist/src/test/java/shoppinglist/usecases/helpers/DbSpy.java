@@ -23,11 +23,33 @@ public class DbSpy implements IDatabase{
         recipeNames=new HashSet<String>();
     }
 
-    public void addRecipe(Recipe recipe){
-        this.recipeAdded=recipe;
+    public void clean(){
+        shoppinglistReturn=new ShoppingList();
+        recipeReturn=new Recipe();
+        shoppingListNames=new HashSet<String>();
+        recipeNames=new HashSet<String>();
+        shoppinglistAdded=null;
+        recipeAdded=null;
+        recipeNames=null;
+        shoppingListNames=null;
     }
-    public void addShoppingList(ShoppingList shoppingList){
+
+
+    public String addRecipe(Recipe recipe){
+        this.recipeAdded=recipe;
+        return recipe.name;
+    }
+    public String updateRecipe(String name,Recipe recipe){
+        this.recipeAdded=recipe;
+        return recipe.name;
+    }
+    public String addShoppingList(ShoppingList shoppingList){
         this.shoppinglistAdded=shoppingList;
+        return shoppingList.name;
+    }
+    public String updateShoppingList(String name, ShoppingList shoppingList){
+        this.shoppinglistAdded=shoppingList;
+        return shoppingList.name;
     }
     public Set<String> getShoppingListNames(){
         return this.shoppingListNames;

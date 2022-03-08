@@ -18,6 +18,10 @@ public class LuiWrapper extends Application implements ILui {
     private static Scene scene;
     private IShoppingList shoppingList;
 
+    public LuiWrapper(){
+        
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("startScreen",new StartScreenController()), 640, 480);

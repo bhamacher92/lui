@@ -1,7 +1,7 @@
 package shoppinglist;
 
 import dbBoundary.IDatabase;
-import shoppinglist.usecases.AddShoppingList;
+import shoppinglist.usecases.UseShoppingList;
 import uiBoundary.ILui;
 import uiBoundary.IShoppingList;
 
@@ -11,7 +11,7 @@ public class ShoppingList implements IShoppingList {
     private IDatabase db;
 
     // usecaseclasses
-    private AddShoppingList addShoppingList;
+    private UseShoppingList addShoppingList;
 
     ShoppingList(ILui ui, IDatabase db){
         this.db=db;
@@ -19,11 +19,11 @@ public class ShoppingList implements IShoppingList {
 
         this.ui.setShoppingList(this);
 
-        addShoppingList=new AddShoppingList(this.db);
+        addShoppingList=new UseShoppingList(this.db);
     }
 
 
-    public AddShoppingList getAddShoppingList(){
+    public UseShoppingList getAddShoppingList(){
         return addShoppingList;
     }
     
