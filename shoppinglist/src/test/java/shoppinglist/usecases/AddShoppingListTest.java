@@ -4,29 +4,43 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 import junit.framework.TestCase;
-import lmerge.ListElement;
-import shared.ShoppingList;
-import shoppinglist.usecases.helpers.DbSpy;
-import uiBoundary.ShoppingList.IAddShoppingList;
-import uiBoundary.ShoppingList.IPullExistingShoppingLists;
-import uiBoundary.ShoppingList.IUpdateShoppingList;
 
+import shoppinglist.lmerge.ListElement;
+import shoppinglist.shared.ShoppingList;
+import shoppinglist.uiBoundary.ShoppingList.IAddShoppingList;
+import shoppinglist.uiBoundary.ShoppingList.IPullExistingShoppingLists;
+import shoppinglist.uiBoundary.ShoppingList.IUpdateShoppingList;
+import shoppinglist.usecases.helpers.DbSpy;
+
+import org.springframework.context.annotation.ComponentScan;
+
+
+
+@ComponentScan
 public class AddShoppingListTest extends TestCase{
 
+    //@Autowired
     private IAddShoppingList addShoppingList;
+
+    //@Autowired
     private IUpdateShoppingList updateShoppingList;
-    private IPullExistingShoppingLists pullShoppingList;
-    private DbSpy db;
     
+    //@Autowired
+    private IPullExistingShoppingLists pullShoppingList;
+    
+    //@Autowired
+    DbSpy db;
+
     @Override
     protected void setUp(){
-        db = new DbSpy();
-        UseShoppingList interactor =  new UseShoppingList(db);
-        this.addShoppingList = interactor;
-        this.updateShoppingList = interactor;
-        this.pullShoppingList = interactor;
+        // UseShoppingList interactor =  new UseShoppingList();
+        // this.addShoppingList = interactor;
+        // this.updateShoppingList = interactor;
+        // this.pullShoppingList = interactor;
     }
 
     @Test

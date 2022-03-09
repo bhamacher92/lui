@@ -3,10 +3,13 @@ package shoppinglist.usecases.helpers;
 import java.util.HashSet;
 import java.util.Set;
 
-import dbBoundary.IDatabase;
-import shared.Recipe;
-import shared.ShoppingList;
+import org.springframework.stereotype.Component;
 
+import shoppinglist.dbBoundary.IDatabase;
+import shoppinglist.shared.Recipe;
+import shoppinglist.shared.ShoppingList;
+
+@Component
 public class DbSpy implements IDatabase{
 
     public Set<String> shoppingListNames;
