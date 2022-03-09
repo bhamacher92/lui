@@ -12,6 +12,7 @@ import shoppinglist.uiBoundary.ShoppingList.*;
 @Component
 public class UseShoppingList implements IAddShoppingList, IUpdateShoppingList, IPullExistingShoppingLists {
    
+   @Autowired
    private IDatabase db;
    
   

@@ -1,4 +1,4 @@
-package shoppinglist.usecases.helpers;
+package shoppinglist.backend;
 
 import java.util.HashSet;
 import java.util.Set;

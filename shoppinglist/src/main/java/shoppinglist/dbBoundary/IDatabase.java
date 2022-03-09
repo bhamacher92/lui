@@ -2,9 +2,12 @@ package shoppinglist.dbBoundary;
 
 import java.util.*;
 
+import org.springframework.stereotype.Component;
+
 import shoppinglist.shared.Recipe;
 import shoppinglist.shared.ShoppingList;
 
+@Component
 public interface IDatabase {
     public String addRecipe(Recipe recipe);
     public String updateRecipe(String name, Recipe recipe);
