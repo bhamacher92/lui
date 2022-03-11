@@ -11,13 +11,16 @@ module shoppinglist {
     opens shoppinglist.dbBoundary to spring.core;
     opens shoppinglist.db to spring.core;
     opens shoppinglist.uiBoundary.ShoppingList to spring.core;
+    opens shoppinglist.uiBoundary.MergeList to spring.core;
     opens shoppinglist.uiBoundary to spring.core;
+    opens shoppinglist.lmerge to spring.core;
 
 
     exports shoppinglist;
     exports shoppinglist.backend;
     exports shoppinglist.lui;
     exports shoppinglist.uiBoundary;
+    exports shoppinglist.uiBoundary.MergeList;
     exports shoppinglist.uiBoundary.ShoppingList;
     exports shoppinglist.uiBoundary.Recipe;
     exports shoppinglist.dbBoundary;

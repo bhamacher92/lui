@@ -9,7 +9,7 @@ import shoppinglist.lmerge.UnitFactory;
 
 public class StringConverter {
 
-    static ListElement string2ListElement(String text) {
+    static public ListElement string2ListElement(String text) {
 
         try {
             String knownUnits = "kg|mg|g|ml|L";
@@ -23,7 +23,7 @@ public class StringConverter {
                 ListElement result = new ListElement(name);
                 if (quantityStr != "") {
                     result.Quantity = new Quantity(Double.parseDouble(quantityStr));
-                    if (unitStr != "") {
+                    if (unitStr != null) {
                         UnitFactory unitFactory = new UnitFactory();
                         result.Quantity.mUnit = unitFactory.createFromString(unitStr);
                     }
@@ -37,7 +37,7 @@ public class StringConverter {
         return new ListElement(text);
     }
 
-    static String listELement2String(ListElement element){
+    static public String listELement2String(ListElement element){
 
         String quantityStr;
         if(element.Quantity.Value % 1 == 0){

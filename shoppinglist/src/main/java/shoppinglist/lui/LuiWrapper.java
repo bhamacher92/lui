@@ -11,10 +11,23 @@ import shoppinglist.uiBoundary.ILui;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LuiWrapper extends Application implements ILui {
+
+    static ApplicationContext applicationContext;   
+
+
+    public void setApplicationContext(ApplicationContext context){
+        applicationContext=context;
+    }
+
+    @Autowired
+    StartScreenController startScreenController;
 
     private static Scene scene;
 
@@ -24,7 +37,8 @@ public class LuiWrapper extends Application implements ILui {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("startScreen",new StartScreenController()), 640, 480);
+        applicationContext.getAutowireCapableBeanFactory().autowireBean(this);
+        scene = new Scene(loadFXML("startScreen",startScreenController), 640, 480);
         scene.getStylesheets().add(getClass().getResource("demo.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
@@ -43,7 +57,7 @@ public class LuiWrapper extends Application implements ILui {
     }
 
     public void exec(){
-        launch();
+       launch();
     }
 
 }

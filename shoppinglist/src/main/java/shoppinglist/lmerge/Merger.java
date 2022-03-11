@@ -3,6 +3,9 @@ package shoppinglist.lmerge;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Merger {
 
     public String getName(String input) {

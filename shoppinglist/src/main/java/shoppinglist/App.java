@@ -1,6 +1,7 @@
 package shoppinglist;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,25 +10,33 @@ import shoppinglist.uiBoundary.*;
 
 
 @Configuration
+@ComponentScan
 @Component
-@ComponentScan(basePackages="shoppinglist")
 public class App {  
 
         @Autowired
         ILui ui;
+
+        static ApplicationContext ctx;
         public static void main(String[] args) {
         
-            var ctx = new AnnotationConfigApplicationContext(App.class);
+            ctx = new AnnotationConfigApplicationContext(App.class);
 
             var bean = ctx.getBean(App.class);
             bean.run();
     
-            ctx.close();
+           // ctx.close();
 
         
     }
 
     public void run() {
+
+        for (String beanName : ctx.getBeanDefinitionNames()) {
+            System.out.println(beanName);
+        }
+        ui.setApplicationContext(ctx);
+
         ui.exec();
     }
 
